@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-Pt-4Pj">
-                                <rect key="frame" x="45" y="218" width="230" height="21"/>
+                                <rect key="frame" x="45" y="169" width="230" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -41,11 +41,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="36m-Xg-OHt">
+                                <rect key="frame" x="40" y="198" width="240" height="128"/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iry-5R-olN">
+                                <rect key="frame" x="96" y="339" width="129" height="30"/>
+                                <state key="normal" title="Share on facebook"/>
+                                <connections>
+                                    <action selector="clickFacebookShare" destination="BYZ-38-t0r" eventType="touchUpInside" id="z0d-7S-zrx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="facebookShare" destination="Iry-5R-olN" id="DND-vm-V1k"/>
+                        <outlet property="imageView" destination="36m-Xg-OHt" id="X5q-0d-1ft"/>
                         <outlet property="name" destination="PRf-37-b74" id="FzB-v6-Qul"/>
                         <outlet property="result" destination="uKi-Pt-4Pj" id="W8a-lB-8v6"/>
                     </connections>
