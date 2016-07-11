@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title></title>
+        <script src="http://openlayers.org/api/OpenLayers.js"></script>
+        <script type="text/javascript">
+ 
+             function search(){
+                var lat = document.getElementById("lat").value;
+                var lon = document.getElementById("lon").value;
+                var zoom=13;
+                var map;
+
+                map = new OpenLayers.Map ("map");
+                map.addLayer(new OpenLayers.Layer.OSM());
+                var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913"));
+                map.setCenter (lonLat, zoom);
+
+                //Initialise the vector layer using OpenLayers.Format.OSM
+                var layer = new OpenLayers.Layer.Vector("Polygon", {
+                    strategies: [new OpenLayers.Strategy.Fixed()],
+                    protocol: new OpenLayers.Protocol.HTTP({
+                        url: "myosmfile.osm",   //<-- relative or absolute URL to your .osm file
+                        format: new OpenLayers.Format.OSM()
+                    }),
+                    projection: new OpenLayers.Projection("EPSG:4326")
+                });
+ 
+                map.addLayers([layer]);
+ 
+            }
+        </script>
+    </head>
+    LAT<input id="lat" type="text">
+    LON<input id="lon" type="text">
+    <button onclick="search()">Search</button>
+    <body>
+        <div id="map" class="smallmap"></div>
+        </div>
+    </body>
+</html>
