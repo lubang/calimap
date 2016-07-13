@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title></title>
+        <script src="http://openlayers.org/api/OpenLayers.js"></script>
+        <script type="text/javascript">
+ 
+             function search(){
+                var lat = document.getElementById("lat").value;
+                var lon = document.getElementById("lon").value;
+                var zoom=16;
+                var map;
+
+                map = new OpenLayers.Map ("map");
+                map.addLayer(new OpenLayers.Layer.OSM());
+                var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913"));
+                map.setCenter (lonLat, zoom);
+                
+            }
+        </script>
+    </head>
+    LAT<input id="lat" type="text">
+    LON<input id="lon" type="text">
+    <button onclick="search()">Search</button>
+    <body>
+        <div id="map" class="smallmap"></div>
+        </div>
+    </body>
+</html>
