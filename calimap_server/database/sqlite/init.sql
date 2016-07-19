@@ -13,6 +13,12 @@ insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('A', 0.0, 0.1, 1, "AAA"); 
 
 insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('A', 0.0, 0.2, 1, "AAAAAA"); 
+
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('A', 0.0, 0.5, 1, "AAAAAAAAA"); 
+
+insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('B', 1.0, 1.1, 2, "BBB"); 
 
 insert into alphabet (alphabet, lat, long, zoom, image_path)
