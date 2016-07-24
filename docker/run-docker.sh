@@ -1,0 +1,1 @@
+docker run --name calimap -p 10100:80 -v $PWD/server/:/server -d lubang/calimap

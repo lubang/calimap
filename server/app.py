@@ -10,8 +10,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/calimap.sqlite'
 
 Repository.db = SQLAlchemy(app)
 
+app.register_blueprint(controller.blueprint)
 app.register_blueprint(alphabet.blueprint, url_prefix='/api/v1')
-app.register_blueprint(controller.blueprint, url_prefix='/')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run()

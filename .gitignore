@@ -68,3 +68,6 @@ jrebel.lic
 # paulp script
 /.lib/
 
+
+# Dependency directory
+node_modules
