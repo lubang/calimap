@@ -1,6 +1,9 @@
 from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 
+# References
+# 1. https://github.com/mitsuhiko/flask-sqlalchemy/issues/98
+
 Base = declarative_base()
 
 class Alphabet(Base):
