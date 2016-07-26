@@ -19,7 +19,7 @@ insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('A', -37.823337, 144.974673, 8, "db/mapImage/a/upper/a_1.PNG");
 
 insert into alphabet (alphabet, lat, long, zoom, image_path)
-values ('A', -36.889918 145.18012, 8, "db/mapImage/a/upper/a_2.PNG");
+values ('A', -36.889918, 145.18012, 8, "db/mapImage/a/upper/a_2.PNG");
 
 insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('c', 25.844421, 50.621164, 8, "db/mapImage/c/lower/c_1.PNG");
