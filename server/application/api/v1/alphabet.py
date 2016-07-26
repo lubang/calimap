@@ -1,22 +1,23 @@
-from flask import Blueprint, abort
+from flask import Blueprint, abort, jsonify, Response
 
 from domain.models import Alphabet
 from domain.repository import Repository
 
 import random
+import json
 
 blueprint = Blueprint('alphabet', __name__)
 
 
 @blueprint.route('/alphabet/today', methods=['GET'])
-def getTodayAlphabet():
+def get_today_useful_message():
     allAlphabets = Repository.db.session.query(Alphabet).all()
     return u"<br>".join([u"{0}: {1}	{2}	{3}	{4}".
                         format(item.alphabet, item.lat, item.long, item.zoom, item.image_path)
                          for item in allAlphabets])
 
 
-@blueprint.route('/api/v1/alphabet/text=<string:input>', methods=['GET'])
+@blueprint.route('/alphabet/text=<string:input>', methods=['GET'])
 def generate_image_list(input):
     # 1. Convert unicodes or whatever!!! to string
     input = str(input)
@@ -31,15 +32,20 @@ def generate_image_list(input):
     if isinstance(words, list) == False:
         return "Splitting a sentence to characters was failed. Sorry."
 
-    # TODO 4. Generate image list which are matched to words.
-    return search_alphabet_image('A')
+    # 4. Generate image list which are matched to words.
+    images = list()
+    for item in words:
+        found = search_alphabet_image(item)
+        images.append(found)
 
+    data = {
+        "text": input,
+        "cali": images
+    }
 
-# TODO 5. Generate return value
-# resp = Response(js, status=200, mimetype='application/json')
-# resp.headers['Link'] = 'http://127.0.0.1:5000'
+    resp = Response(json.dumps(data), status=200, mimetype='application/json')
+    return resp
 
-# return input
 
 # Search an image matched to input character. (Select image randomly? Character:Image = 1:N)
 def search_alphabet_image(character):
@@ -47,20 +53,26 @@ def search_alphabet_image(character):
         return 'Input is not character. Sorry.'
 
     selected = Repository.db.session.query(Alphabet).filter_by(alphabet=character).all()
-    print(selected)
+
+    if len(selected) <= 0:
+        return "There is no matched words."
 
     choicedOne = random.choice(selected)
-    print(choicedOne)
 
-    temp = u"<br>".join([u"{0}: {1}	{2}	{3}	{4}".
-                        format(item.alphabet, item.lat, item.long, item.zoom, item.image_path)
-                         for item in selected])
-
-    print(type(temp))
-    print(temp)
-
-    return u"{0}: {1} {2} {3} {4}".format(choicedOne.alphabet, choicedOne.lat, choicedOne.long, choicedOne.zoom,
-                                          choicedOne.image_path)
+    return {
+        "image": str(choicedOne.image_path),
+        "geo": {
+            "type": "Point",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [choicedOne.lat, choicedOne.long]
+            },
+            "properties": {
+                "name": choicedOne.alphabet
+            }
+        },
+        "zoom": choicedOne.zoom
+    }
 
 
 @blueprint.errorhandler(400)
