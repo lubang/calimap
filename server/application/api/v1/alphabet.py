@@ -38,9 +38,12 @@ def generate_image_list(input):
         found = search_alphabet_image(item)
         images.append(found)
 
-    data = "{\"text\": \"" + input +"\", \"cali\":" + str(images) + "}"
+    data = {
+        "text": input,
+        "cali": images
+    }
 
-    resp = Response(data, status=200, mimetype='application/json')
+    resp = Response(json.dumps(data), status=200, mimetype='application/json')
     return resp
 
 
@@ -56,23 +59,20 @@ def search_alphabet_image(character):
 
     choicedOne = random.choice(selected)
 
-    return json.dumps(
-        {
-            "image": str(choicedOne.image_path),
-            "geo": {
+    return {
+        "image": str(choicedOne.image_path),
+        "geo": {
+            "type": "Point",
+            "geometry": {
                 "type": "Point",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [choicedOne.lat, choicedOne.long]
-                },
-                "properties": {
-                    "name": choicedOne.alphabet
-                }
+                "coordinates": [choicedOne.lat, choicedOne.long]
             },
-            "zoom": choicedOne.zoom
-        }
-        , indent = 4
-    )
+            "properties": {
+                "name": choicedOne.alphabet
+            }
+        },
+        "zoom": choicedOne.zoom
+    }
 
 
 @blueprint.errorhandler(400)
