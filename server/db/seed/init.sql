@@ -48,6 +48,12 @@ values ('r', -42.689838, -71.897315, 8, "db/mapImage/r/lower/r_1.PNG");
 insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('u', 37.152181, -109.881485, 8, "db/mapImage/u/lower/u_1.PNG");
 
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('Y', -20.950896, 14.195583, 8, "db/mapImage/y/lower/y_1.PNG");
+
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('A', 37.675742, -122.471623, 8, "db/mapImage/a/upper/a_3.PNG");
+
 
 
 
