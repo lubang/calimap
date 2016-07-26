@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  InputViewController.swift
 //  siphabet
 //
 //  Created by 김대석 on 2016. 6. 11..
@@ -16,5 +16,9 @@ class InputViewController: UIViewController {
         if let resultViewController = segue.destinationViewController as? ResultViewController {
             resultViewController.name = name.text
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }

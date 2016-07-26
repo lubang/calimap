@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180FEA971D4777E700D6621D /* 10X10Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 180FEA961D451FDA00D6621D /* 10X10Bold.ttf */; };
+		180FEA981D4777EA00D6621D /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 180FEA951D451C6F00D6621D /* Roboto-Medium.ttf */; };
+		180FEA991D4777ED00D6621D /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 180FEA941D451AB500D6621D /* Roboto-Bold.ttf */; };
+		180FEA9A1D4777EF00D6621D /* a옛날목욕탕L.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 180FEA931D44F37B00D6621D /* a옛날목욕탕L.ttf */; };
+		180FEA9B1D4777F200D6621D /* Lombok.otf in Resources */ = {isa = PBXBuildFile; fileRef = 180FEA921D44F22900D6621D /* Lombok.otf */; };
 		1862A39B1D0BCE66000474B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862A39A1D0BCE66000474B8 /* AppDelegate.swift */; };
 		1862A39D1D0BCE66000474B8 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862A39C1D0BCE66000474B8 /* InputViewController.swift */; };
 		1862A3A01D0BCE66000474B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1862A39E1D0BCE66000474B8 /* Main.storyboard */; };
@@ -16,7 +21,6 @@
 		18766D281D225BDA00453F07 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18766D271D225BDA00453F07 /* ResultViewController.swift */; };
 		18766D2D1D23AAED00453F07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18766D2B1D23AAED00453F07 /* LaunchScreen.storyboard */; };
 		18766D2F1D23AE9200453F07 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18766D2E1D23AE9200453F07 /* LoadingViewController.swift */; };
-		18766D311D23BF7000453F07 /* LoadingViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18766D301D23BF7000453F07 /* LoadingViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180FEA921D44F22900D6621D /* Lombok.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lombok.otf; sourceTree = "<group>"; };
+		180FEA931D44F37B00D6621D /* a옛날목욕탕L.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "a옛날목욕탕L.ttf"; sourceTree = "<group>"; };
+		180FEA941D451AB500D6621D /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		180FEA951D451C6F00D6621D /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		180FEA961D451FDA00D6621D /* 10X10Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10X10Bold.ttf; sourceTree = "<group>"; };
 		1862A3971D0BCE66000474B8 /* siphabet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = siphabet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1862A39A1D0BCE66000474B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1862A39C1D0BCE66000474B8 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +61,6 @@
 		18766D271D225BDA00453F07 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		18766D2C1D23AAED00453F07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18766D2E1D23AE9200453F07 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		18766D301D23BF7000453F07 /* LoadingViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180FEA911D44F1D900D6621D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				180FEA961D451FDA00D6621D /* 10X10Bold.ttf */,
+				180FEA951D451C6F00D6621D /* Roboto-Medium.ttf */,
+				180FEA941D451AB500D6621D /* Roboto-Bold.ttf */,
+				180FEA931D44F37B00D6621D /* a옛날목욕탕L.ttf */,
+				180FEA921D44F22900D6621D /* Lombok.otf */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		1862A38E1D0BCE66000474B8 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +123,7 @@
 		1862A3991D0BCE66000474B8 /* siphabet */ = {
 			isa = PBXGroup;
 			children = (
+				180FEA911D44F1D900D6621D /* resources */,
 				1862A39A1D0BCE66000474B8 /* AppDelegate.swift */,
 				1862A39C1D0BCE66000474B8 /* InputViewController.swift */,
 				1862A39E1D0BCE66000474B8 /* Main.storyboard */,
@@ -111,7 +132,6 @@
 				1862A3A61D0BCE66000474B8 /* Info.plist */,
 				18766D271D225BDA00453F07 /* ResultViewController.swift */,
 				18766D2E1D23AE9200453F07 /* LoadingViewController.swift */,
-				18766D301D23BF7000453F07 /* LoadingViewController2.swift */,
 			);
 			path = siphabet;
 			sourceTree = "<group>";
@@ -238,7 +258,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180FEA981D4777EA00D6621D /* Roboto-Medium.ttf in Resources */,
+				180FEA971D4777E700D6621D /* 10X10Bold.ttf in Resources */,
+				180FEA991D4777ED00D6621D /* Roboto-Bold.ttf in Resources */,
+				180FEA9A1D4777EF00D6621D /* a옛날목욕탕L.ttf in Resources */,
 				18766D2D1D23AAED00453F07 /* LaunchScreen.storyboard in Resources */,
+				180FEA9B1D4777F200D6621D /* Lombok.otf in Resources */,
 				1862A3A21D0BCE66000474B8 /* Assets.xcassets in Resources */,
 				1862A3A01D0BCE66000474B8 /* Main.storyboard in Resources */,
 			);
@@ -266,7 +291,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1862A39D1D0BCE66000474B8 /* InputViewController.swift in Sources */,
-				18766D311D23BF7000453F07 /* LoadingViewController2.swift in Sources */,
 				1862A39B1D0BCE66000474B8 /* AppDelegate.swift in Sources */,
 				18766D281D225BDA00453F07 /* ResultViewController.swift in Sources */,
 				18766D2F1D23AE9200453F07 /* LoadingViewController.swift in Sources */,
