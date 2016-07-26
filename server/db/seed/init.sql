@@ -49,5 +49,20 @@ insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('u', 37.152181, -109.881485, 8, "db/mapImage/u/lower/u_1.PNG");
 
 
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('i', -37.840413, 147.832688, 19, "db/mapImage/i/lower/i_101.PNG");
 
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('u', -37.811466, 147.858708, 19, "db/mapImage/u/upper/u_101.PNG");
 
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('t', -37.804718, 147.822519, 18, "db/mapImage/t/upper/t_101.PNG");
+
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('g', -37.739331, 147.655005, 16, "db/mapImage/g/lower/g_101.PNG");
+
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('x', -37.887501, 147.569361, 16, "db/mapImage/x/upper/x_101.PNG");
+
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('y', -37.940154, 147.571210, 18, "db/mapImage/y/lower/y_101.PNG");
