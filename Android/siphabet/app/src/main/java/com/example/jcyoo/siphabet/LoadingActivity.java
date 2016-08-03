@@ -2,19 +2,27 @@ package com.example.jcyoo.siphabet;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by JCYoo on 2016-07-12.
  */
 public class LoadingActivity extends Activity
 {
+
+    ImageView imgViewLoading;
+
     protected void onCreate(Bundle _savedInstanceState)
     {
         super.onCreate(_savedInstanceState);
         setContentView(R.layout.siphabet_loading);
+
+
 
         Handler hd = new Handler();
         hd.postDelayed(new splashhandler() , 3000); // 3초 후에 hd Handler 실행
