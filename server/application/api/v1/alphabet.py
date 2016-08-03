@@ -5,16 +5,18 @@ from domain.repository import Repository
 
 import random
 import json
+import lxml.html
+import re
 
 blueprint = Blueprint('alphabet', __name__)
 
 
 @blueprint.route('/alphabet/today', methods=['GET'])
 def get_today_useful_message():
-    allAlphabets = Repository.db.session.query(Alphabet).all()
-    return u"<br>".join([u"{0}: {1}	{2}	{3}	{4}".
-                        format(item.alphabet, item.lat, item.long, item.zoom, item.image_path)
-                         for item in allAlphabets])
+    title_of_the_page = lxml.html.parse('http://www.dictionary.com/wordoftheday/')
+    word_of_the_day = title_of_the_page.find(".//title").text
+    word_of_the_day = re.split("- |\|", word_of_the_day)
+    return generate_image_list(word_of_the_day[1].strip())
 
 
 @blueprint.route('/alphabet/text=<string:input>', methods=['GET'])

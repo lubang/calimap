@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -16,10 +17,10 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity
 {
-    private String m_strRESTURL = "http://192.168.0.193:3000/siphabet";
+    private String m_strRESTURL = "http://calimap.party/api/v1/alphabet/text=";
     private android.util.Log Log;
 
-    TextView tvNaverHtml;
+    private EditText editUserInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,22 +32,27 @@ public class MainActivity extends AppCompatActivity
     public void onClick(View view)
     {
 
-        tvNaverHtml = (TextView)this.findViewById(R.id.textView3);
+        editUserInput = (EditText)this.findViewById(R.id.editInput);
 
         // Thread로 웹서버에 접속
         new Thread()
         {
             public void run()
             {
-                String strRestResult = getRESTData(m_strRESTURL);
+                String strRequestText = editUserInput.getText().toString();
+                String strRestResult = getRESTData(m_strRESTURL + strRequestText);
 
-                Bundle bun = new Bundle();
-                bun.putString("RESTResult", strRestResult);
-                Message msg = handler.obtainMessage();
-                msg.setData(bun);
-                handler.sendMessage(msg);
+                Intent intent = new Intent(getApplication(), ResultActivity.class);
+                intent.putExtra("REST_Return", strRestResult);
+                startActivity(intent);
             }
         }.start();
+
+    }
+
+
+    public void onClickWelcomeMenu(View view)
+    {
 
     }
 
@@ -101,17 +107,6 @@ public class MainActivity extends AppCompatActivity
         return strResult;
     }
 
-    Handler handler = new Handler()
-    {
-        public void handleMessage(Message msg)
-        {
-            Bundle bun = msg.getData();
-            String strRestResult = bun.getString("RESTResult");
-            tvNaverHtml.setText(strRestResult);
-
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(strRestResult)));
-        }
-    };
 
 }
 
