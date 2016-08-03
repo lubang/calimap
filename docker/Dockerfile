@@ -4,7 +4,7 @@ MAINTAINER DONGGEUN,BANG_ <lubang@lulab.net>
 # Reference: https://github.com/jazzdd86/alpine-flask
 
 # basic flask environment
-RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py-pip \
+RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py-lxml py-pip \
 	&& pip install --upgrade pip \
 	&& pip install flask
 
