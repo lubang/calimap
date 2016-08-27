@@ -1,7 +1,7 @@
 function getAlphabet() {
     var input = document.getElementById('inputAlphabet').value;
     var request = $.ajax({
-        url: 'http://calimap.party/api/v1/alphabet/text=' + input
+        url: 'http://localhost:5000/api/v1/alphabet/text=' + input
         , method: 'GET'
         , headers: {
             'Access-Control-Allow-Origin': '*'
@@ -14,7 +14,7 @@ function getAlphabet() {
             map = new OpenLayers.Map("outputMap");
             map.addLayer(new OpenLayers.Layer.OSM());
             for (var i = 0; i < response.cali.length; i++) {
-                document.getElementById('outputImg').innerHTML += "<img style=\"width:200px;height:200px\"src=\"http://calimap.party/" + response.cali[i].image + "\"/>";
+                document.getElementById('outputImg').innerHTML += "<img style=\"width:200px;height:200px\"src=\"http://localhost:5000/" + response.cali[i].image + "\"/>";
                 var getInfo = response.cali[i].geo.geometry.coordinates;
                 var lonLat = new OpenLayers.LonLat(getInfo[0], getInfo[1]).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913"));
                 var markers = new OpenLayers.Layer.Markers("Markers");
