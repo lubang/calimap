@@ -8,19 +8,27 @@ function getAlphabet() {
         }
         , dataType: 'JSON'
         , success: function (response) {
-            console.log(response);
             document.getElementById('outputImg').innerHTML = "<img src=\"\">";
             document.getElementById('outputMap').innerHTML = "";
             map = new OpenLayers.Map("outputMap");
             map.addLayer(new OpenLayers.Layer.OSM());
+            var fromProjection = new OpenLayers.Projection("EPSG:4326");
+            var toProjection   = new OpenLayers.Projection("EPSG:900913");
+            var zoom = 1;
+            var positionList = [];
             for (var i = 0; i < response.cali.length; i++) {
                 document.getElementById('outputImg').innerHTML += "<img style=\"width:200px;height:200px\"src=\"http://calimap.party/" + response.cali[i].image + "\"/>";
-                var getInfo = response.cali[i].geo.geometry.coordinates;
-                var lonLat = new OpenLayers.LonLat(getInfo[0], getInfo[1]).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913"));
+                var geoInfo = response.cali[i].geo.geometry.coordinates;
+                var lon = geoInfo[1];
+                var lat = geoInfo[0];
+                var position = new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection);
+                positionList.push(position);
+            }
+            for(var i = 0; i < positionList.length; i++){
                 var markers = new OpenLayers.Layer.Markers("Markers");
                 map.addLayer(markers);
-                markers.addMarker(new OpenLayers.Marker(lonLat));
-                map.setCenter(lonLat, 5);
+                markers.addMarker(new OpenLayers.Marker(positionList[i]));
+                map.setCenter(positionList[i], zoom);
             }
         }
     }).fail(function () {
