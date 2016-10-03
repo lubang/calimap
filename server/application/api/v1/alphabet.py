@@ -1,12 +1,14 @@
-from flask import Blueprint, abort, jsonify, Response
+from flask import Blueprint, abort, jsonify, Response, request
 
-from domain.models import Alphabet
+from domain.alphabet_models import Alphabet
+from domain.history_models import SearchHistory
 from domain.repository import Repository
 
 import random
 import json
 import lxml.html
 import re
+import datetime, time
 
 blueprint = Blueprint('alphabet', __name__)
 
@@ -21,20 +23,14 @@ def get_today_useful_message():
 
 @blueprint.route('/alphabet/text=<string:input>', methods=['GET'])
 def generate_image_list(input):
-    # 1. Convert unicodes or whatever!!! to string
     input = str(input)
-
-    # 2. Check input, a word or sentence.
     if isinstance(input, str) == False:
         abort(400)
-    # return 'Input is not string type. Please input as a word or a sentence.'
 
-    # 3. Generate words list.
     words = list(input)
     if isinstance(words, list) == False:
         return "Splitting a sentence to characters was failed. Sorry."
 
-    # 4. Generate image list which are matched to words.
     images = list()
     for item in words:
         found = search_alphabet_image(item)
@@ -44,6 +40,9 @@ def generate_image_list(input):
         "text": input,
         "cali": images
     }
+
+    save_history(request, input)
+    Repository.db.session.close()
 
     resp = Response(json.dumps(data), status=200, mimetype='application/json')
     return resp
@@ -75,6 +74,19 @@ def search_alphabet_image(character):
         },
         "zoom": choicedOne.zoom
     }
+
+
+def save_history(request, input):
+    searched_keyword = input
+    ip = request.remote_addr
+    searched_time = datetime.datetime.fromtimestamp(time.time())
+    client_platform = request.user_agent.platform
+    client_browser = request.user_agent.browser
+
+    t = SearchHistory(searched_keyword, ip, searched_time, client_platform, client_browser)
+
+    Repository.db.session.add(t)
+    Repository.db.session.commit()
 
 
 @blueprint.errorhandler(400)
