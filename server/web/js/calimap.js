@@ -16,6 +16,7 @@ function getAlphabet() {
             var toProjection   = new OpenLayers.Projection("EPSG:900913");
             var zoom = 1;
             var positionList = [];
+            var markerNameList = [];
             for (var i = 0; i < response.cali.length; i++) {
                 document.getElementById('outputImg').innerHTML += "<img style=\"width:200px;height:200px\"src=\"http://calimap.party/" + response.cali[i].image + "\"/>";
                 var geoInfo = response.cali[i].geo.geometry.coordinates;
@@ -23,9 +24,10 @@ function getAlphabet() {
                 var lat = geoInfo[0];
                 var position = new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection);
                 positionList.push(position);
+                markerNameList.push(response.cali[i].geo.properties.name)
             }
             for(var i = 0; i < positionList.length; i++){
-                var markers = new OpenLayers.Layer.Markers("Markers");
+                var markers = new OpenLayers.Layer.Markers(markerNameList[i]);
                 map.addLayer(markers);
                 markers.addMarker(new OpenLayers.Marker(positionList[i]));
                 map.setCenter(positionList[i], zoom);
