@@ -19,6 +19,9 @@ values ('A', -36.889918, 145.18012, 8, "db/mapImage/a/upper/a_2.PNG");
 insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('A', 37.675742, -122.471623, 8, "db/mapImage/a/upper/a_3.PNG");
 
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('A', 37.003520, 126.815314, 8, "db/mapImage/a/upper/a_4.PNG");
+
 --B
 insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('b', 51.856654, -1.216927, 8, "db/mapImage/b/lower/b_3.PNG");
@@ -35,8 +38,14 @@ insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('D', 53.010841, -81.329146, 8, "db/mapImage/d/upper/d_1.PNG");
 
 --E
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('E', 53.370745, -6.232452, 8, "db/mapImage/d/upper/e_1.PNG");
 
 --F
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('F', 53.296806, -6.132226, 8, "db/mapImage/f/upper/f_1.PNG");
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('F', -37.802239, 143.932959, 8, "db/mapImage/f/upper/f_2.PNG");
 
 --G
 insert into alphabet (alphabet, lat, long, zoom, image_path)
@@ -61,6 +70,8 @@ insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('j', -18.357107, 146.818856, 8, "db/mapImage/j/lower/j_1.PNG");
 
 --K
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('k', 53.362675, -6.269338, 8, "db/mapImage/k/lower/k_1.PNG");
 
 
 --L
@@ -113,10 +124,18 @@ insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('u', -37.811466, 147.858708, 19, "db/mapImage/u/upper/u_101.PNG");
 
 --V
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('v', 53.310908, -6.203184, 19, "db/mapImage/v/lower/v_1.PNG");
 
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('V', -37.842146, 144.998947, 19, "db/mapImage/v/upper/v_2.PNG");
 
 --W
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('W', 53.330257, -6.317611, 19, "db/mapImage/w/upper/w_1.PNG");
 
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('w', -38.274577, 142.939166, 19, "db/mapImage/w/lower/w_2.PNG");
 
 --X
 insert into alphabet (alphabet, lat, long, zoom, image_path)
@@ -137,6 +156,11 @@ insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('y', -37.940154, 147.571210, 18, "db/mapImage/y/lower/y_101.PNG");
 
 --Z
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('z', 35.207250, 129.054726, 18, "db/mapImage/z/lower/z_1.PNG");
+
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('Z', 52.886610, 4.850046, 18, "db/mapImage/z/upper/z_1.PNG");
 
 --numbers
 insert into alphabet (alphabet, lat, long, zoom, image_path)
