@@ -108,6 +108,9 @@ values ('Q', 19.976737, 76.508098, 8, "db/mapImage/q/lower/q_1.PNG");
 insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('r', -42.689838, -71.897315, 8, "db/mapImage/r/lower/r_1.PNG");
 
+insert into alphabet (alphabet, lat, long, zoom, image_path)
+values ('r', -34.656773, 149.652663, 19, "db/mapImage/r/upper/r_101.PNG");
+
 --S
 insert into alphabet (alphabet, lat, long, zoom, image_path)
 values ('s', -36.00101, 144.42777, 8, "db/mapImage/s/lower/s_1.PNG");
