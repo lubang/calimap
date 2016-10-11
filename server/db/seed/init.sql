@@ -24,7 +24,7 @@ values ('A', 37.003520, 126.815314, 8, "db/mapImage/a/upper/a_4.PNG");
 
 --B
 insert into alphabet (alphabet, lat, long, zoom, image_path)
-values ('b', 51.856654, -1.216927, 8, "db/mapImage/b/lower/b_3.PNG");
+values ('b', 51.856654, -1.216927, 8, "db/mapImage/b/lower/b_1.PNG");
 
 --C
 insert into alphabet (alphabet, lat, long, zoom, image_path)
