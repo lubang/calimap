@@ -56,6 +56,14 @@ def search_alphabet_image(character):
     selected = Repository.db.session.query(Alphabet).filter_by(alphabet=character).all()
 
     if len(selected) <= 0:
+        if character.islower() == True:
+            character = character.upper()
+            selected = Repository.db.session.query(Alphabet).filter_by(alphabet=character).all()
+        else:
+            character = character.lower()
+            selected = Repository.db.session.query(Alphabet).filter_by(alphabet=character).all()
+
+    if len(selected) <= 0:
         return "There is no matched words."
 
     choicedOne = random.choice(selected)
